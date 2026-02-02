@@ -1,0 +1,26 @@
+Landing Page
+   ↓
+Register / Login
+   ↓
+Choose Feature
+   ├── Free E-Books
+   │     ↓
+   │  Search / Filter
+   │     ↓
+   │  Download Book
+   │
+   └── Offline Library
+         ↓
+     Browse Books
+         ↓
+     Select Days
+         ↓
+     Online Payment
+         ↓
+     QR Code Generated
+         ↓
+     Visit Library
+         ↓
+     Show QR → Get Book
+         ↓
+     Return Book → Scan QR

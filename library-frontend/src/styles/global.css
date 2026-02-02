@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (default) */
+    --libflow-bg: #f5f7fb;
+    --libflow-surface: #ffffff;
+    --libflow-soft: #eef2ff;
+    --libflow-border: rgba(15, 23, 42, 0.12);
+    --libflow-text: #0f172a;
+    --libflow-muted: #475569;
+    /* Light mode inputs & cards - high contrast */
+    --libflow-input-bg: #f1f5f9;
+    --libflow-input-border: #cbd5e1;
+    --libflow-placeholder: #64748b;
+    --libflow-card-bg: #ffffff;
+    --libflow-card-border: #e2e8f0;
+  }
+
+  .dark {
+    /* Dark theme - strong contrast for readability */
+    --libflow-bg: #030712;
+    --libflow-surface: #0b1020;
+    --libflow-soft: #0f172a;
+    --libflow-border: rgba(148, 163, 184, 0.25);
+    --libflow-text: #f1f5f9;
+    --libflow-muted: #cbd5e1;
+    --libflow-input-bg: rgba(15, 23, 42, 0.8);
+    --libflow-input-border: rgba(148, 163, 184, 0.35);
+    --libflow-placeholder: #94a3b8;
+    --libflow-card-bg: rgba(15, 23, 42, 0.9);
+    --libflow-card-border: rgba(148, 163, 184, 0.2);
+  }
+
+  body {
+    @apply font-body antialiased;
+    background-color: var(--libflow-bg);
+    color: var(--libflow-text);
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  /* Placeholder contrast - light mode */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--libflow-placeholder);
+  }
+
+  /* Light mode input base - ensure text is visible */
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    color: var(--libflow-text);
+  }
+}
+
+@layer utilities {
+  .bg-darkbg {
+    background-color: #05070d;
+  }
+
+  .bg-surface {
+    background-color: var(--libflow-surface);
+  }
+
+  .bg-soft {
+    background-color: var(--libflow-soft);
+  }
+
+  .border-soft {
+    border-color: var(--libflow-border);
+  }
+
+  .text-muted {
+    color: var(--libflow-muted);
+  }
+
+  /* Theme-aware input - use on inputs for proper light/dark contrast */
+  .input-theme {
+    background-color: var(--libflow-input-bg);
+    border-color: var(--libflow-input-border);
+    color: var(--libflow-text);
+  }
+
+  /* Theme-aware card/container */
+  .card-theme {
+    background-color: var(--libflow-card-bg);
+    border: 1px solid var(--libflow-card-border);
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl shadow-soft border border-soft;
+  }
+
+  .dark .glass-card {
+    @apply bg-white/5 border-white/10 shadow-none;
+  }
+
+  /* Advanced Animations */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(2deg);
+    }
+  }
+
+  @keyframes float-fast {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes fade-up-soft {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(91, 108, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(91, 108, 255, 0.6);
+    }
+  }
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  .animate-fade-up-soft {
+    animation: fade-up-soft 0.8s ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out both;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out both;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out both;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out both;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500;
+  }
+
+  /* Animated Background Doodles */
+  .doodle-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .doodle-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(40px);
+  }
+
+  .doodle-blob {
+    position: absolute;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    opacity: 0.15;
+    filter: blur(60px);
+  }
+}

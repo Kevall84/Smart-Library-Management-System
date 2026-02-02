@@ -1,0 +1,11 @@
+Login
+  ↓
+Admin Dashboard
+  ↓
+View Analytics & Reports
+  ↓
+Manage Users & Librarians
+  ↓
+Configure Pricing & Rules
+  ↓
+View Audit Logs

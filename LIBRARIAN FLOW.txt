@@ -1,0 +1,11 @@
+Login
+  ↓
+Dashboard
+  ↓
+Scan QR Code
+  ├── Issue Book
+  └── Accept Return
+        ↓
+   System Updates Inventory
+        ↓
+   Fine Applied if Delayed

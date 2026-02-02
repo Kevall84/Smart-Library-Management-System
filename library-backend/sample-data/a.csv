@@ -1,0 +1,11 @@
+title,author,category,quantity,rentPerDay,isbn,description,publishedYear,publisher,language,isBestseller,coverImage
+"The Pragmatic Programmer","Andrew Hunt","Software Development",5,15.0,"9780201616224","Classic book on pragmatic software craftsmanship",1999,"Addison-Wesley","English",true,
+"Clean Code","Robert C. Martin","Software Development",8,12.5,"9780132350884","Guide to writing clean, maintainable code",2008,"Prentice Hall","English",true,
+"Design Patterns","Erich Gamma","Software Architecture",4,18.0,"9780201633610","Catalog of reusable object-oriented design patterns",1994,"Addison-Wesley","English",false,
+"Refactoring","Martin Fowler","Software Engineering",6,14.0,"9780201485677","Improving the design of existing code",1999,"Addison-Wesley","English",false,
+"Introduction to Algorithms","Thomas H. Cormen","Computer Science",3,20.0,"9780262033848","Comprehensive algorithms textbook",2009,"MIT Press","English",false,
+"You Don't Know JS","Kyle Simpson","JavaScript",10,10.0,"9781491904244","Deep dive into core JavaScript concepts",2015,"O'Reilly Media","English",false,
+"JavaScript: The Good Parts","Douglas Crockford","JavaScript",7,9.5,"9780596517748","A curated subset of JavaScript features",2008,"O'Reilly Media","English",false,
+"Cracking the Coding Interview","Gayle Laakmann McDowell","Interview Preparation",9,11.0,"9780984782857","Programming interview preparation questions and answers",2015,"CareerCup","English",false,
+"The Phoenix Project","Gene Kim","IT Management",5,8.5,"9780988262591","Novel about DevOps and IT operations",2013,"IT Revolution Press","English",false,
+"Deep Work","Cal Newport","Productivity",6,7.5,"9781455586691","Rules for focused success in a distracted world",2016,"Grand Central Publishing","English",false,

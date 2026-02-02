@@ -1,0 +1,157 @@
+backend/
+│
+├── src/
+│
+│   ├── config/
+│   │   ├── db.js
+│   │   │   # Connects Node.js app to MongoDB
+│   │
+│   │   ├── env.js
+│   │   │   # Loads environment variables (.env)
+│   │
+│   │   ├── payment.config.js
+│   │   │   # Razorpay / Stripe keys & setup
+│   │
+│   │   ├── mail.config.js
+│   │   │   # Nodemailer SMTP configuration for emails
+│   │
+│   │   └── ebook.config.js
+│   │       # External free eBook API base URLs & keys
+│
+│   ├── constants/
+│   │   ├── pricing.constants.js
+│   │   │   # Rent price (₹30/day), penalty (₹50/day), max days
+│   │
+│   │   └── roles.constants.js
+│   │       # USER, LIBRARIAN, ADMIN roles
+│
+│   ├── models/
+│   │   ├── User.model.js
+│   │   │   # Users (students, librarians, admins)
+│   │
+│   │   ├── Book.model.js
+│   │   │   # Offline library books (quantity, bestseller, category)
+│   │
+│   │   ├── Ebook.model.js
+│   │   │   # Cached metadata for free eBooks (optional)
+│   │
+│   │   ├── Rental.model.js
+│   │   │   # Book rental details, due date, penalty status
+│   │
+│   │   ├── Payment.model.js
+│   │   │   # Payment records & transaction IDs
+│   │
+│   │   ├── QR.model.js
+│   │   │   # QR code data for issue & return verification
+│   │
+│   │   ├── AuditLog.model.js
+│   │   │   # Logs admin & librarian actions
+│   │
+│   │   └── Notification.model.js
+│   │       # Email / system notifications history
+│
+│   ├── middlewares/
+│   │   ├── auth.middleware.js
+│   │   │   # JWT verification
+│   │
+│   │   ├── role.middleware.js
+│   │   │   # Role-based access (user/librarian/admin)
+│   │
+│   │   ├── error.middleware.js
+│   │   │   # Centralized error handling
+│   │
+│   │   └── audit.middleware.js
+│   │       # Automatically logs sensitive operations
+│
+│   ├── services/
+│   │   ├── auth.service.js
+│   │   │   # Login, register, password hashing, token logic
+│   │
+│   │   ├── ebook.service.js
+│   │   │   # Fetch free eBooks from Open Library / Gutenberg
+│   │
+│   │   ├── book.service.js
+│   │   │   # Offline library book business logic
+│   │
+│   │   ├── rental.service.js
+│   │   │   # Rent, return, due date, penalty calculation
+│   │
+│   │   ├── payment.service.js
+│   │   │   # Payment creation & verification
+│   │
+│   │   ├── qr.service.js
+│   │   │   # QR code generation & validation
+│   │
+│   │   ├── email.service.js
+│   │   │   # Sends receipt & QR code via email
+│   │
+│   │   └── analytics.service.js
+│   │       # Admin dashboard statistics & reports
+│
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   │   # Auth APIs (login/register/logout)
+│   │
+│   │   ├── ebook.controller.js
+│   │   │   # Free eBook browsing & searching APIs
+│   │
+│   │   ├── book.controller.js
+│   │   │   # Offline book listing & availability
+│   │
+│   │   ├── rental.controller.js
+│   │   │   # Rent, return, QR verification APIs
+│   │
+│   │   ├── payment.controller.js
+│   │   │   # Payment initiation & confirmation APIs
+│   │
+│   │   ├── librarian.controller.js
+│   │   │   # Issue & return operations
+│   │
+│   │   └── admin.controller.js
+│   │       # Admin users, settings, analytics APIs
+│
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   │   # /api/auth/*
+│   │
+│   │   ├── ebook.routes.js
+│   │   │   # /api/ebooks/*
+│   │
+│   │   ├── book.routes.js
+│   │   │   # /api/books/*
+│   │
+│   │   ├── rental.routes.js
+│   │   │   # /api/rentals/*
+│   │
+│   │   ├── payment.routes.js
+│   │   │   # /api/payments/*
+│   │
+│   │   ├── librarian.routes.js
+│   │   │   # /api/librarian/*
+│   │
+│   │   └── admin.routes.js
+│   │       # /api/admin/*
+│
+│   ├── jobs/
+│   │   └── dueReminder.job.js
+│   │       # Cron job to send due-date & penalty emails
+│
+│   ├── utils/
+│   │   ├── jwt.util.js
+│   │   │   # JWT helpers
+│   │
+│   │   ├── response.util.js
+│   │   │   # Standard API response format
+│   │
+│   │   └── pagination.util.js
+│   │       # Pagination logic
+│
+│   ├── app.js
+│   │   # Express app initialization
+│
+│   └── server.js
+│       # Server entry point
+│
+├── .env
+├── package.json
+└── README.md

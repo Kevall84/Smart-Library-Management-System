@@ -1,0 +1,203 @@
+frontend/
+│
+├── src/
+│
+│   ├── assets/
+│   │   ├── images/
+│   │   │   # All static images used across the app
+│   │   │   # (landing banners, illustrations, blog images, etc.)
+│   │   │
+│   │   └── icons/
+│   │       # Logo, favicon, SVG icons used in navbar & footer
+│
+│   ├── components/
+│   │   # Reusable UI building blocks (used in multiple pages)
+│   │
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx
+│   │   │   │   # Top navigation bar (public + logged-in users)
+│   │   │   │   # Shows login/register or dashboard based on auth state
+│   │   │
+│   │   │   ├── Footer.jsx
+│   │   │   │   # Footer shown on all public pages
+│   │   │
+│   │   │   └── Sidebar.jsx
+│   │   │       # Role-based sidebar (User / Librarian / Admin)
+│   │   │       # Menu items change based on logged-in role
+│   │
+│   │   ├── landing/
+│   │   │   # Sections of the public landing page
+│   │   │
+│   │   │   ├── Hero.jsx
+│   │   │   │   # Main hero section with heading & CTA
+│   │   │
+│   │   │   ├── Features.jsx
+│   │   │   │   # Explains two main features:
+│   │   │   │   # 1) Free eBooks (online)
+│   │   │   │   # 2) Offline library rentals
+│   │   │
+│   │   │   ├── Rules.jsx
+│   │   │   │   # Rules for offline library:
+│   │   │   │   # rent/day, penalty/day, QR process, etc.
+│   │   │
+│   │   │   └── Blogs.jsx
+│   │   │       # Blog preview cards shown on landing page
+│   │
+│   │   ├── common/
+│   │   │   # Small reusable UI components
+│   │   │
+│   │   │   ├── Button.jsx
+│   │   │   │   # Reusable styled button component
+│   │   │
+│   │   │   ├── Loader.jsx
+│   │   │   │   # Global loading spinner while fetching data
+│   │   │
+│   │   │   └── QRCodeView.jsx
+│   │   │       # Displays QR code for book issue/return
+│
+│   ├── pages/
+│   │   # Actual application pages (used in routes)
+│   │
+│   │   ├── public/
+│   │   │   ├── Home.jsx
+│   │   │   │   # Landing page composed of landing components
+│   │   │
+│   │   │   ├── About.jsx
+│   │   │   │   # About library, mission, services
+│   │   │
+│   │   │   ├── Contact.jsx
+│   │   │   │   # Contact form & library contact details
+│   │   │
+│   │   │   ├── Rules.jsx
+│   │   │   │   # Complete offline library rules page
+│   │   │
+│   │   │   └── Blogs.jsx
+│   │   │       # Blog listing & updates
+│   │
+│   │   ├── auth/
+│   │   │   ├── Login.jsx
+│   │   │   │   # User / Librarian / Admin login page
+│   │   │
+│   │   │   └── Register.jsx
+│   │   │       # User registration page
+│   │
+│   │   ├── ebooks/
+│   │   │   # Free eBooks module (online digital library)
+│   │   │
+│   │   │   ├── Browse.jsx
+│   │   │   │   # Search, filter, and sort free eBooks
+│   │   │
+│   │   │   └── Details.jsx
+│   │   │       # eBook details page with download link
+│   │
+│   │   ├── user/
+│   │   │   # Logged-in user (reader/student) pages
+│   │   │
+│   │   │   ├── Dashboard.jsx
+│   │   │   │   # User overview (active rentals, due dates)
+│   │   │
+│   │   │   ├── BrowseBooks.jsx
+│   │   │   │   # Browse offline library books
+│   │   │
+│   │   │   ├── MyRentals.jsx
+│   │   │   │   # List of rented books with due date & penalty
+│   │   │
+│   │   │   ├── Payments.jsx
+│   │   │   │   # Payment history & receipts
+│   │   │
+│   │   │   └── QRCode.jsx
+│   │   │       # Shows QR code for library visit
+│
+│   │   ├── librarian/
+│   │   │   # Librarian-only pages
+│   │   │
+│   │   │   ├── Dashboard.jsx
+│   │   │   │   # Librarian stats (issued, returned, overdue)
+│   │   │
+│   │   │   ├── ScanQR.jsx
+│   │   │   │   # Scan QR to issue or return books
+│   │   │
+│   │   │   └── Inventory.jsx
+│   │   │       # Manage book inventory & quantities
+│   │
+│   │   └── admin/
+│   │       # Admin-only pages
+│   │
+│   │       ├── Dashboard.jsx
+│   │       │   # System-wide analytics & KPIs
+│   │       │
+│   │       ├── Users.jsx
+│   │       │   # Manage users & librarians
+│   │       │
+│   │       ├── Reports.jsx
+│   │       │   # Rental, revenue, usage reports
+│   │       │
+│   │       └── Settings.jsx
+│   │           # Configure rent price, penalty, rules
+│
+│   ├── services/
+│   │   # Handles all API calls to backend
+│   │
+│   │   ├── api.js
+│   │   │   # Axios instance with base URL & interceptors
+│   │   │
+│   │   ├── auth.service.js
+│   │   │   # Login, register, logout API calls
+│   │   │
+│   │   ├── ebook.service.js
+│   │   │   # Fetch free eBooks from backend
+│   │   │
+│   │   ├── book.service.js
+│   │   │   # Offline library book APIs
+│   │   │
+│   │   ├── rental.service.js
+│   │   │   # Rent, return, penalty APIs
+│   │   │
+│   │   └── payment.service.js
+│   │       # Payment initiation & verification APIs
+│
+│   ├── context/
+│   │   # Global state management using Context API
+│   │
+│   │   ├── AuthContext.jsx
+│   │   │   # Stores logged-in user info & role
+│   │   │
+│   │   ├── ThemeContext.jsx
+│   │   │   # Dark / light mode handling
+│   │   │
+│   │   └── NotificationContext.jsx
+│   │       # Toast notifications (success/error)
+│
+│   ├── routes/
+│   │   # Centralized route definitions
+│   │
+│   │   ├── AppRoutes.jsx
+│   │   │   # All app routes defined here
+│   │   │
+│   │   ├── PublicRoute.jsx
+│   │   │   # Routes accessible without login
+│   │   │
+│   │   └── ProtectedRoute.jsx
+│   │       # Auth + role-protected routes
+│
+│   ├── styles/
+│   │   └── global.css
+│   │       # Tailwind base styles & global overrides
+│
+│   ├── App.jsx
+│   │   # Root component (providers + routing)
+│
+│   └── main.jsx
+│       # React DOM entry point
+│
+├── index.html
+│   # Main HTML template
+│
+├── tailwind.config.js
+│   # Tailwind CSS configuration
+│
+├── vite.config.js
+│   # Vite build & dev server config
+│
+└── package.json
+    # Frontend dependencies & scripts
